@@ -8,21 +8,20 @@
   <title>Document</title>
   <link rel="stylesheet" href="../../../static/styles/partials/dashboard/dashboard-cards.css" />
   <link rel="stylesheet" href="../../../static/styles/main.css">
-
 </head>
 
 <body>
   <main>
     <section class="dashboard-cards-section section">
       <div class="dashboard-cards-container container">
-        <!-- <div class="dashboard-cards-container"> -->
         <!-- dashboard container head -->
         <div class="dashboard-head">
           <div class="dashboard-project">Projects</div>
 
           <!-- select menu -->
           <div class="dashboard-select">
-            <select class="dashboard-custom-select">
+            <!-- ✅ 加了aria-label -->
+            <select class="dashboard-custom-select" aria-label="Filter tasks by time period">
               <option value="dashboard-This Day">This Day</option>
               <option value="dashboard-This Week">This Week</option>
               <option value="dashboard-This Month">This Month</option>
@@ -35,16 +34,13 @@
         <div class="dashboard-cards-container-list">
           <!-- Card-1 -->
           <div class="dashboard-card card-1">
-            <!-- card head -->
             <div class="dashboard-card-head">
               <div class="dashboard-card-topic">To do</div>
               <div class="dashboard-task-number">0</div>
             </div>
-            <!-- Add task option -->
-            <div class="dashboard-add-button">+</div>
-            <!-- Card body -->
+            <!-- ✅ 加了aria-label -->
+            <div class="dashboard-add-button" role="button" aria-label="Add new To Do task">+</div>
             <div class="dashboard-card-body">
-              <!-- tasks -->
               <div class="dashboard-task task-1">
                 <div class="dashboard-task-head">
                   Lorem ipsum dolor sit amet.
@@ -65,18 +61,16 @@
               </div>
             </div>
           </div>
+
           <!-- Card-2 -->
           <div class="dashboard-card card-2">
-            <!-- card head -->
             <div class="dashboard-card-head">
               <div class="dashboard-card-topic">In progress</div>
               <div class="dashboard-task-number">0</div>
             </div>
-            <!-- Add task option -->
-            <div class="dashboard-add-button">+</div>
-            <!-- Card body -->
+            <!-- ✅ 加了aria-label -->
+            <div class="dashboard-add-button" role="button" aria-label="Add new In Progress task">+</div>
             <div class="dashboard-card-body">
-              <!-- tasks -->
               <div class="dashboard-task task-1">
                 <div class="dashboard-task-head">
                   Lorem ipsum dolor sit amet.
@@ -88,18 +82,16 @@
               </div>
             </div>
           </div>
+
           <!-- Card-3 -->
           <div class="dashboard-card card-3">
-            <!-- card head -->
             <div class="dashboard-card-head">
               <div class="dashboard-card-topic">Completed</div>
               <div class="task-number">0</div>
             </div>
-            <!-- Add task option -->
-            <div class="dashboard-add-button">+</div>
-            <!-- Card body -->
+            <!-- ✅ 加了aria-label -->
+            <div class="dashboard-add-button" role="button" aria-label="Add new Completed task">+</div>
             <div class="dashboard-card-body">
-              <!-- tasks -->
               <div class="dashboard-task task-1">
                 <div class="dashboard-task-head">
                   Lorem ipsum dolor sit amet.
@@ -111,28 +103,6 @@
               </div>
             </div>
           </div>
-          <!-- <div class="dashboard-card card-3">
-            
-            <div class="dashboard-card-head">
-              <div class="dashboard-card-topic">Completed</div>
-              <div class="task-number">0</div>
-            </div>
-            
-            <div class="dashboard-add-button">+</div>
-            
-            <div class="dashboard-card-body">
-              
-              <div class="dashboard-task task-1">
-                <div class="dashboard-task-head">
-                  Lorem ipsum dolor sit amet.
-                </div>
-                <div class="dashboard-task-description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Nulla pariatur modi quia praesentium molestias ullam.
-                </div>
-              </div>
-            </div>
-          </div> -->
         </div>
       </div>
     </section>
