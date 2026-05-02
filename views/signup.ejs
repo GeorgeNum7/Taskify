@@ -18,6 +18,9 @@
 
         <div class="signup">
           <form method="post" action="/signup">
+            <!-- 修复注入点 1：注册表单的 CSRF 防御令牌 -->
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            
             <label for="chk" aria-hidden="true">Sign up</label>
             <div class="signup-username">
               <input type="text" name="SignUpUsername" placeholder="User name" required="true" />
@@ -35,6 +38,9 @@
         </div>
         <div class="login">
           <form method="post" action="/login">
+            <!-- 修复注入点 2：登录表单的 CSRF 防御令牌 -->
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            
             <label for="chk" aria-hidden="true">Login</label>
             <div class="signup-email">
               <input type="email" name="LoginEmail" placeholder="Enter your email " required="true" />
@@ -52,8 +58,5 @@
     </div>
   </section>
 </body>
-
-</html>
-</head>
 
 </html>
