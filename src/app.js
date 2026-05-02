@@ -50,6 +50,14 @@ app.use((req, res) => {
     res.redirect('/');
 });
 
-app.listen(port, () => {
-    console.log(`The application started successfully on port ${port}`);
-});
+// 当直接运行此文件时（如 node src/app.js），启动服务器监听端口
+// 强制添加忽略声明
+/* istanbul ignore if */
+if (require.main === module) {
+    app.listen(port, () => {
+        console.log(`The application started successfully on port ${port}`);
+    });
+}
+
+// 导出 app 实例供 Supertest 在测试环境中调用
+module.exports = app;
