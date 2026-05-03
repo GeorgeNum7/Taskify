@@ -8,9 +8,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../static/styles/signup.css" />
   <title>SignUp</title>
+  <style>
+    .lang-toggle-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #9900f8;
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      z-index: 9999;
+    }
+  </style>
 </head>
 
 <body>
+  <!-- 语言切换按钮 -->
+  <button id="lang-toggle" class="lang-toggle-btn">中文</button>
+
   <section class="section signup-section">
     <div class="container signup-container">
       <div class="main">
@@ -18,45 +36,59 @@
 
         <div class="signup">
           <form method="post" action="/signup">
-            <!-- 修复注入点 1：注册表单的 CSRF 防御令牌 -->
-            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-            
-            <label for="chk" aria-hidden="true">Sign up</label>
+            <label for="chk" aria-hidden="true" data-i18n="signup.signup">Sign up</label>
             <div class="signup-username">
-              <input type="text" name="SignUpUsername" placeholder="User name" required="true" />
+              <input type="text" name="SignUpUsername" 
+                placeholder="User name" 
+                data-i18n-placeholder="signup.username"
+                required="true" />
             </div>
             <div class="signup-email">
-              <input type="email" name="SignUpEmail" placeholder="Email" required="true" />
+              <input type="email" name="SignUpEmail" 
+                placeholder="Email" 
+                data-i18n-placeholder="signup.email"
+                required="true" />
             </div>
             <div class="signup-password">
-              <input type="password" name="SignUpPassword" placeholder="Password" required="true" />
+              <input type="password" name="SignUpPassword" 
+                placeholder="Password" 
+                data-i18n-placeholder="signup.password"
+                required="true" />
             </div>
             <div>
-              <input class="button" name="SignUpSubmit" type="submit" value="Sign up" />
+              <input class="button" name="SignUpSubmit" type="submit" 
+                value="Sign up" 
+                data-i18n="signup.signupBtn" />
             </div>
           </form>
         </div>
+
         <div class="login">
           <form method="post" action="/login">
-            <!-- 修复注入点 2：登录表单的 CSRF 防御令牌 -->
-            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-            
-            <label for="chk" aria-hidden="true">Login</label>
+            <label for="chk" aria-hidden="true" data-i18n="signup.login">Login</label>
             <div class="signup-email">
-              <input type="email" name="LoginEmail" placeholder="Enter your email " required="true" />
+              <input type="email" name="LoginEmail" 
+                placeholder="Enter your email" 
+                data-i18n-placeholder="signup.loginEmail"
+                required="true" />
             </div>
             <div class="signup-password">
-              <input type="password" name="LoginPassword" placeholder="Enter password" required="true" />
+              <input type="password" name="LoginPassword" 
+                placeholder="Enter password" 
+                data-i18n-placeholder="signup.loginPassword"
+                required="true" />
             </div>
-            <!-- <button href="/auth">Log In</button> -->
             <div>
-              <input class="button" name="LoginSubmit" type="submit" value="Login" />
+              <input class="button" name="LoginSubmit" type="submit" 
+                value="Login"
+                data-i18n="signup.loginBtn" />
             </div>
           </form>
         </div>
       </div>
     </div>
   </section>
-</body>
 
+  <script src="../static/i18n.js"></script>
+</body>
 </html>

@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../static/styles/main.css">
     <link rel="stylesheet" href="../../static/styles/partials/hero.css" />
-  
     <title>Document</title>
   </head>
   <body>
@@ -14,31 +13,23 @@
       <div class="container hero-container">
         <div class="hero-col-text">
           <div>
-            <h1 class="hero-heading">One app to
-              replace them all</h1>
-              
+            <h1 class="hero-heading" data-i18n="hero.heading">One app to replace them all</h1>
           </div>
-          <div class="hero-desc">
-            <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, explicabo. -->
-          </div>
+          <div class="hero-desc"></div>
           
-          <input class="hero-input-email"type="email" name="email" id="hero-email" placeholder="Enter your email address">
+          <input class="hero-input-email" type="email" name="email" id="hero-email" 
+            placeholder="Enter your email address"
+            data-i18n-placeholder="hero.placeholder">
         
-          <a href="#" class="hero-btn">Get Started</a>
+          <a href="#" class="hero-btn" data-i18n="hero.button">Get Started</a>
         </div>
-        
-      
-          
-          <div class="hero-col-img">
-              <img class="hero-image" src="../../static/assets/laptop.png" >
-          
-          </div>
 
-        
-       </div>
-      
-    
-      </section>
+        <div class="hero-col-img">
+          <img class="hero-image" src="../../static/assets/laptop.png" alt="Taskify app running on a laptop">
+        </div>
+      </div>
+    </section>
+
     
   </body>
 </html>

@@ -122,8 +122,8 @@ a .nav-title:hover {
   text-decoration: none;
 }
 .btn2 {
-  color: var(--clr-main-bg);
-  background-color: var(--clr-lightgrey);
+  color: #ffffff;
+  background-color: #4a4a4a;
   text-decoration: none;
 }
 .btn1:hover {

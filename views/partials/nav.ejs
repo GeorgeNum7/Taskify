@@ -12,24 +12,30 @@
     <header>
       <div class="container navbar-container">
         <a href="/" class="logo-wrapper">
-          <img src="../../static/assets/logo.png" alt="logo" class="logo" />
+          <img src="../../static/assets/logo.png" alt="Taskify logo" class="logo" />
           <h1 class="nav-title">Taskify</h1>
         </a>
 
         <nav>
           <ul class="nav-items">
-            <li><a href="#">Features</a></li>
-            <li><a href="#">Templates</a></li>
-            <li><a href="#">For Teams</a></li>
-            <li><a href="#">Resources</a></li>
-            <li><a href="#">Pricing</a></li>
+            <li><a href="#" data-i18n="nav.features">Features</a></li>
+            <li><a href="#" data-i18n="nav.templates">Templates</a></li>
+            <li><a href="#" data-i18n="nav.forTeams">For Teams</a></li>
+            <li><a href="#" data-i18n="nav.resources">Resources</a></li>
+            <li><a href="#" data-i18n="nav.pricing">Pricing</a></li>
           </ul>
         </nav>
+
         <div class="nav-buttons">
-          <a href="/signup" class="btn1 nav-btn">Sign Up</a>
-          <a href="/dashboard" class="btn2 nav-btn">Log In</a>
+          <!-- 语言切换按钮 -->
+          <button id="lang-toggle" class="btn1 nav-btn" aria-label="Toggle language">中文</button>
+          <a href="/signup" class="btn1 nav-btn" data-i18n="nav.signUp">Sign Up</a>
+          <a href="/dashboard" class="btn2 nav-btn" data-i18n="nav.logIn">Log In</a>
         </div>
       </div>
     </header>
+
+    <!-- 引入i18n脚本 -->
+    <script src="../../static/i18n.js"></script>
   </body>
 </html>
