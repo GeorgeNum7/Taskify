@@ -23,6 +23,10 @@ app.get("/dashboard", (req, res) => {
     res.status(200).render("dashboard/dashboard.ejs");
 });
 
+app.get("/privacy", (req, res) => {
+    res.status(200).render("privacy.ejs");
+});
+
 app.post("/signup", (req, res) => {
     res.redirect("/"); 
 });

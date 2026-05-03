@@ -15,20 +15,17 @@
     <div class="dashboard-navbar-container">
       <nav class="dashboard-navbar-dashboard-navbar">
         <form action="#" class="dashboard-navbar-search-bar">
-          <!-- ✅ 加了aria-label -->
           <button type="submit" aria-label="Search">
             <i class="fas fa-search"></i>
           </button>
-          <input type="text" placeholder="Search" aria-label="Search tasks" />
+          <input type="text" data-i18n-placeholder="dashboard.search" placeholder="Search" aria-label="Search tasks" />
         </form>
         <div class="dashboard-navbar-dashboard-links">
           <ul class="dashboard-navbar-dashboard-navbar-links">
             <li>
-              <!-- ✅ 加了aria-label -->
               <a href="#" aria-label="Help"><i class="fa-regular fa-circle-question"></i></a>
             </li>
             <li>
-              <!-- ✅ 加了aria-label -->
               <a href="#" class="dashboard-navbar-bell-icon" aria-label="Notifications"><i class="far fa-bell"></i></a>
             </li>
             <li>
@@ -37,13 +34,12 @@
                   Lord Voldemort <i class="fa-solid fa-chevron-down"></i>
                 </button>
                 <div id="dashboard-navbar-myDropdown" class="dashboard-navbar-dropdown-content">
-                  <a href="#" style="font-size: 16px;">Profile</a>
-                  <a href="#" style="font-size: 16px;">Log Out</a>
+                  <a href="#" style="font-size: 16px;" data-i18n="dashboard.profile">Profile</a>
+                  <a href="#" style="font-size: 16px;" data-i18n="dashboard.logout">Log Out</a>
                 </div>
               </div>
             </li>
             <li>
-              <!-- ✅ 加了aria-label -->
               <a href="#" aria-label="User profile"><i class="fa-regular fa-user dashboard-navbar-link-img dashboard-navbar-profile-icon"></i></a>
             </li>
           </ul>
@@ -51,12 +47,12 @@
       </nav>
     </div>
   </header>
+  <script src="../../../static/i18n.js"></script>
 </body>
 <script>
 function myFunction() {
   document.getElementById("dashboard-navbar-myDropdown").classList.toggle("dashboard-navbar-show");
 }
-
 window.onclick = function(event) {
   if (!event.target.matches('.dashboard-navbar-dropbtn')) {
     var dropdowns = document.getElementsByClassName("dashboard-navbar-dropdown-content");
