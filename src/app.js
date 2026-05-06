@@ -38,6 +38,12 @@ app.use((req, res) => {
     res.redirect('/');
 });
 
-app.listen(port, () => {
-    console.log(`The application started successfully on port ${port}`);
-});
+/* istanbul ignore next */
+if (process.env.NODE_ENV !== 'test') {
+    app.listen(port, () => {
+        console.log(`The application started successfully on port ${port}`);
+    });
+}
+
+module.exports = app;
+
