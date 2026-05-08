@@ -6,7 +6,9 @@
   "scripts": {
     "test": "cross-env NODE_ENV=test jest --coverage",
     "start": "node src/app.js",
-    "server": "nodemon src/app.js"
+    "server": "nodemon src/app.js",
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -31,6 +33,8 @@
     "supertest": "^7.2.2"
   },
   "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "csurf": "^1.11.0",
     "dotenv": "^16.0.1",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
