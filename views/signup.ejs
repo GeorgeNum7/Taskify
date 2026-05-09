@@ -32,9 +32,16 @@
   <section class="section signup-section">
     <div class="container signup-container">
       <div class="main">
-        <input type="checkbox" id="chk" aria-hidden="true" />
+        <input type="checkbox" id="chk" aria-hidden="true" <%= typeof showLogin !== 'undefined' && showLogin ? 'checked' : '' %> />
 
         <div class="signup">
+
+          <% if (signupError && !(typeof showLogin !== 'undefined' && showLogin)) { %>
+            <div class="error-message signup-error">
+              <%= signupError %>
+            </div>
+          <% } %>
+
           <form method="post" action="/signup">
             <label for="chk" aria-hidden="true" data-i18n="signup.signup">Sign up</label>
             <div class="signup-username">
@@ -64,6 +71,13 @@
         </div>
 
         <div class="login">
+
+          <% if (loginError && showLogin) { %>
+            <div class="error-message login-error">
+              <%= loginError %>
+            </div>
+          <% } %>
+
           <form method="post" action="/login">
             <label for="chk" aria-hidden="true" data-i18n="signup.login">Login</label>
             <div class="signup-email">

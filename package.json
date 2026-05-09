@@ -4,11 +4,10 @@
   "description": "Taskify is a task management system for everyone to help you manage your tasks and projects from ideation to delivery.",
   "main": "index.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=test jest --coverage",
     "start": "node src/app.js",
     "server": "nodemon src/app.js",
-    "test": "jest",
-    "test:coverage": "jest --coverage"
+    "test": "cross-env NODE_ENV=test jest --coverage --detectOpenHandles",
+    "test:coverage": "cross-env NODE_ENV=test jest --coverage"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -27,17 +26,23 @@
   },
   "homepage": "https://github.com/DSCKGEC/Taskify#readme",
   "devDependencies": {
+    "cheerio": "^1.2.0",
+    "jest": "^30.4.1",
+    "mongodb-memory-server": "^11.1.0",
     "cross-env": "^10.1.0",
-    "jest": "^30.3.0",
     "nodemon": "^2.0.19",
     "supertest": "^7.2.2"
   },
   "dependencies": {
+    "bcrypt": "^6.0.0",
+    "connect-mongo": "^6.0.0",
     "cookie-parser": "^1.4.7",
     "csurf": "^1.11.0",
     "dotenv": "^16.0.1",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
+    "express-session": "^1.19.0",
+    "mongoose": "^9.6.1",
     "i18next": "^26.0.8",
     "i18next-browser-languagedetector": "^8.2.1"
   }
