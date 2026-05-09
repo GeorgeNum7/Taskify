@@ -14,9 +14,16 @@
   <section class="section signup-section">
     <div class="container signup-container">
       <div class="main">
-        <input type="checkbox" id="chk" aria-hidden="true" />
+        <input type="checkbox" id="chk" aria-hidden="true" <%= typeof showLogin !== 'undefined' && showLogin ? 'checked' : '' %> />
 
         <div class="signup">
+
+          <% if (signupError && !(typeof showLogin !== 'undefined' && showLogin)) { %>
+            <div class="error-message signup-error">
+              <%= signupError %>
+            </div>
+          <% } %>
+
           <form method="post" action="/signup">
             <!-- 修复注入点 1：注册表单的 CSRF 防御令牌 -->
             <input type="hidden" name="_csrf" value="<%= csrfToken %>">
@@ -37,6 +44,13 @@
           </form>
         </div>
         <div class="login">
+
+          <% if (loginError && showLogin) { %>
+            <div class="error-message login-error">
+              <%= loginError %>
+            </div>
+          <% } %>
+
           <form method="post" action="/login">
             <!-- 修复注入点 2：登录表单的 CSRF 防御令牌 -->
             <input type="hidden" name="_csrf" value="<%= csrfToken %>">
