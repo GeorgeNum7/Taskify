@@ -1,0 +1,132 @@
+{
+  "nav": {
+    "features": "Features",
+    "templates": "Templates",
+    "forTeams": "For Teams",
+    "resources": "Resources",
+    "pricing": "Pricing",
+    "signUp": "Sign Up",
+    "logIn": "Log In"
+  },
+  "hero": {
+    "heading": "One app to replace them all",
+    "placeholder": "Enter your email address",
+    "button": "Get Started"
+  },
+  "feature": {
+    "heading": "Delightfully simple and deceptively powerful task management",
+    "subheading": "30 million+ people organize billions of tasks in Todoist for their work, education, and personal life.",
+    "f1heading": "With you everywhere",
+    "f1text": "Use Todoist's apps, extensions and widgets on any device or platform.",
+    "f1btn": "Download apps",
+    "f2heading": "Make Todoist your",
+    "f2text": "Customize your to-do list with filters, labels, priorities, and more.",
+    "f2btn": "See all features",
+    "f3heading": "Productivity Method",
+    "f3text": "Personal productivity recommendations based on your unique traits and strengths.",
+    "f3btn": "Take the quiz",
+    "f4heading": "There's a template for that",
+    "f4text": "Hundreds of templates are available to get you started with whatever's on your plate.",
+    "f4btn": "Start with templates",
+    "f5heading": "Connect with your other tool",
+    "f5text": "Link Todoist with your calendar, voice assistant, and 30+ other tools.",
+    "f5btn": "Install integrations"
+  },
+  "achievements": {
+    "heading": "A task manager you can trust for life",
+    "subheading": "We've been building Todoist for 15 years and 169 days.",
+    "link": "We're in it for the long haul.",
+    "downloads": "App downloads",
+    "tasks": "Tasks completed",
+    "colleges": "Colleges",
+    "users": "Pro users"
+  },
+  "footer": {
+    "join": "Join millions of people who organize work and life with Taskify.",
+    "features": "FEATURES",
+    "f1": "How It Works",
+    "f2": "For Teams",
+    "f3": "Pricing",
+    "f4": "Templates",
+    "resources": "RESOURCES",
+    "r1": "Download Apps",
+    "r2": "Help Center",
+    "r3": "Productivity Methods",
+    "r4": "Refer a friend",
+    "r5": "Integrations",
+    "r6": "Channel Partners",
+    "r7": "Developer API",
+    "r8": "Status",
+    "company": "COMPANY",
+    "c1": "About Us",
+    "c2": "We are hiring!",
+    "c3": "Blog",
+    "c4": "Press",
+    "c5": "Twist",
+    "security": "Security",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  },
+  "cookie": {
+    "text": "We use cookies to improve your experience. By using Taskify, you agree to our",
+    "policy": "Privacy Policy",
+    "accept": "Accept",
+    "decline": "Decline"
+  },
+  "privacy": {
+  "title": "Privacy Policy",
+  "updated": "Last updated: May 2026",
+  "intro_heading": "1. Introduction",
+  "intro_text": "Welcome to Taskify. We are committed to protecting your personal information and your right to privacy.",
+  "collect_heading": "2. Information We Collect",
+  "collect_text": "We collect information you provide directly to us, such as your name, email address, and password when you create an account.",
+  "use_heading": "3. How We Use Your Information",
+  "use_text": "We use the information we collect to provide, maintain, and improve our services, and to communicate with you.",
+  "cookies_heading": "4. Cookies",
+  "cookies_text": "We use cookies and similar tracking technologies to track activity on our service. Cookies are files with a small amount of data stored on your device.",
+  "storage_heading": "5. Local Storage",
+  "storage_text": "Taskify uses browser local storage to save your preferences and session data. This data is stored locally on your device and is not transmitted to our servers.",
+  "security_heading": "6. Data Security",
+  "security_text": "We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.",
+  "contact_heading": "7. Contact Us",
+  "contact_text": "If you have any questions about this Privacy Policy, please contact us at: privacy@taskify.com",
+  "back": "← Back to Home"
+},
+"dashboard": {
+  "projects": "Projects",
+  "thisDay": "This Day",
+  "thisWeek": "This Week",
+  "thisMonth": "This Month",
+  "thisYear": "This Year",
+  "todo": "To do",
+  "inProgress": "In progress",
+  "completed": "Completed",
+  "search": "Search",
+  "profile": "Profile",
+  "logout": "Log Out"
+},
+"sidebar": {
+  "overview": "Overview",
+  "stats": "Stats",
+  "projects": "Projects",
+  "chat": "Chat",
+  "calendar": "Calendar",
+  "settings": "Settings",
+  "logout": "Log out"
+},
+"signup": {
+  "signup": "Sign up",
+  "login": "Login",
+  "username": "User name",
+  "email": "Email",
+  "loginEmail": "Enter your email",
+  "password": "Password",
+  "loginPassword": "Enter password",
+  "signupBtn": "Sign up",
+  "loginBtn": "Login",
+  "toggleLang": "中文"
+},
+  "lang": {
+    "toggle": "中文"
+  }
+}

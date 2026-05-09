@@ -12,8 +12,6 @@
   <title>Document</title>
   <link rel="stylesheet" href="../../../static/styles/partials/dashboard/dashboard-sidebar.css" />
   <link rel="stylesheet" href="../../../static/styles/main.css">
-
-
 </head>
 
 <body>
@@ -21,10 +19,10 @@
     <div class="sidebar-container">
       <div class="sidebar-header">
         <div class="sidebar-logo">
-          <img src="../../../static/assets/nav_logo.png" alt="" />
+          <img src="../../../static/assets/nav_logo.png" alt="Taskify logo" />
         </div>
         <div class="sidebar-title">Taskify</div>
-        <a href="#">
+        <a href="#" aria-label="Toggle menu">
           <i class="menuIcon material-icons">menu</i>
         </a>
       </div>
@@ -33,61 +31,53 @@
           <li class="sidebar-list">
             <a href="#">
               <span class="sidebar-icon"><i class="fa-solid fa-house"></i></span>
-              <span class="sidebar-name">Overview</span>
+              <span class="sidebar-name" data-i18n="sidebar.overview">Overview</span>
             </a>
           </li>
-
           <li class="sidebar-list">
             <a href="#">
-              <span class="sidebar-icon">
-                <i class="fa-solid fa-chart-simple"></i>
-              </span>
-              <span class="sidebar-name">Stats</span>
+              <span class="sidebar-icon"><i class="fa-solid fa-chart-simple"></i></span>
+              <span class="sidebar-name" data-i18n="sidebar.stats">Stats</span>
             </a>
           </li>
-
           <li class="sidebar-list">
             <a href="#">
               <span class="sidebar-icon"><i class="fa-solid fa-folder-open"></i></span>
-              <span class="sidebar-name">Projects</span>
+              <span class="sidebar-name" data-i18n="sidebar.projects">Projects</span>
             </a>
           </li>
-
           <li class="sidebar-list">
             <a href="#">
               <span class="sidebar-icon"><i class="fa-solid fa-comment"></i></span>
-              <span class="sidebar-name">Chat</span>
+              <span class="sidebar-name" data-i18n="sidebar.chat">Chat</span>
             </a>
           </li>
-
           <li class="sidebar-list">
             <a href="#">
-              <span class="sidebar-icon">
-                <i class="fa-solid fa-calendar-days"></i>
-              </span>
-              <span class="sidebar-name">Calendar</span>
+              <span class="sidebar-icon"><i class="fa-solid fa-calendar-days"></i></span>
+              <span class="sidebar-name" data-i18n="sidebar.calendar">Calendar</span>
             </a>
           </li>
-          <div class="bottom-section">
-            <li class="sidebar-list">
-              <a href="#">
-                <span class="sidebar-icon"><i class="fa-solid fa-gear"></i></span>
-                <span class="sidebar-name">Settings</span>
-              </a>
-            </li>
-
-            <li class="sidebar-list">
-              <a href="#">
-                <span class="sidebar-icon">
-                  <i class="fa-solid fa-right-from-bracket"></i>
-                </span>
-                <span class="sidebar-name">Log out</span>
-              </a>
-            </li>
-          </div>
+          <li class="bottom-section">
+            <ul>
+              <li class="sidebar-list">
+                <a href="#">
+                  <span class="sidebar-icon"><i class="fa-solid fa-gear"></i></span>
+                  <span class="sidebar-name" data-i18n="sidebar.settings">Settings</span>
+                </a>
+              </li>
+              <li class="sidebar-list">
+                <a href="#">
+                  <span class="sidebar-icon"><i class="fa-solid fa-right-from-bracket"></i></span>
+                  <span class="sidebar-name" data-i18n="sidebar.logout">Log out</span>
+                </a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>
   </section>
+  <script src="../../../static/i18n.js"></script>
 </body>
 </html>

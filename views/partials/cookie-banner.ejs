@@ -1,0 +1,48 @@
+<div id="cookie-banner"></div>
+
+<script>
+  var banner = document.getElementById('cookie-banner');
+  
+  // 用JS直接设置所有样式
+  banner.setAttribute('style', [
+    'position:fixed',
+    'bottom:0',
+    'left:0',
+    'width:100%',
+    'background-color:#2d2d2d',
+    'color:#ffffff',
+    'padding:16px 24px',
+    'display:flex',
+    'flex-direction:row',
+    'flex-wrap:nowrap',
+    'justify-content:space-between',
+    'align-items:center',
+    'z-index:9999',
+    'box-sizing:border-box'
+  ].join(';'));
+
+  banner.innerHTML = `
+    <span style="font-size:14px;white-space:nowrap;line-height:1.5;">
+      🍪 We use cookies to improve your experience. By using Taskify, you agree to our 
+      <a href="/privacy" style="color:#9900f8;text-decoration:underline;">Privacy Policy</a>.
+    </span>
+    <div style="display:flex;flex-direction:row;gap:12px;margin-left:24px;flex-shrink:0;">
+      <button id="accept-btn" style="background-color:#9900f8;color:white;border:none;padding:8px 20px;border-radius:4px;cursor:pointer;font-size:14px;">Accept</button>
+      <button id="decline-btn" style="background-color:transparent;color:white;border:1px solid white;padding:8px 20px;border-radius:4px;cursor:pointer;font-size:14px;">Decline</button>
+    </div>
+  `;
+
+  if (localStorage.getItem('cookieConsent')) {
+    banner.style.display = 'none';
+  }
+
+  document.getElementById('accept-btn').onclick = function() {
+    localStorage.setItem('cookieConsent', 'accepted');
+    banner.style.display = 'none';
+  };
+
+  document.getElementById('decline-btn').onclick = function() {
+    localStorage.setItem('cookieConsent', 'declined');
+    banner.style.display = 'none';
+  };
+</script>

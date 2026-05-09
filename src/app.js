@@ -252,7 +252,7 @@ app.post("/login", async (req, res) => {
     return res.redirect("/dashboard");
   } catch (err) {
     console.error("登录错误:", err);
-    
+
 
     return res.status(500).render("signup.ejs", {
       loginError: "Server error",
@@ -281,28 +281,35 @@ function authMiddleware(req, res, next) {
 // 11. Dashboard
 // ======================================================
 
-app.get("/dashboard", authMiddleware, (req, res) => {
-  res.status(200).render("dashboard/dashboard.ejs");
+app.get("/privacy", (req, res) => {
+    res.status(200).render("privacy.ejs");
 });
 
-// ======================================================
-// 12. 404 Handler
-// ======================================================
+app.post("/signup", (req, res) => {
+    res.redirect("/");
+});
 
+app.post("/login", (req, res) => {
+    res.redirect("/");
+});
+
+// ==========================================
+// 12. 404 Handler
+// ==========================================
 app.use((req, res) => {
-  res.redirect("/");
+    res.redirect("/");
 });
 
 // ======================================================
 // 13. Start Server
 // ======================================================
 
-if (require.main === module) {
-  app.listen(port, () => {
-    console.log(
-      `The application started successfully on port ${port}`
-    );
-  });
+/* istanbul ignore next */
+if (process.env.NODE_ENV !== 'test') {
+    app.listen(port, () => {
+        console.log(`The application started successfully on port ${port}`);
+    });
 }
 
 module.exports = app;
+

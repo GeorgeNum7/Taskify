@@ -1,0 +1,132 @@
+{
+  "nav": {
+    "features": "功能",
+    "templates": "模板",
+    "forTeams": "团队版",
+    "resources": "资源",
+    "pricing": "价格",
+    "signUp": "注册",
+    "logIn": "登录"
+  },
+  "hero": {
+    "heading": "一个应用，替代所有",
+    "placeholder": "请输入您的电子邮箱",
+    "button": "立即开始"
+  },
+  "feature": {
+    "heading": "简单易用且功能强大的任务管理",
+    "subheading": "全球3000万用户使用 Todoist 管理工作、学习和生活中的任务。",
+    "f1heading": "随时随地陪伴您",
+    "f1text": "在任何设备或平台上使用 Todoist 的应用、扩展和小部件。",
+    "f1btn": "下载应用",
+    "f2heading": "打造您的专属 Todoist",
+    "f2text": "使用过滤器、标签、优先级等功能自定义您的待办事项列表。",
+    "f2btn": "查看所有功能",
+    "f3heading": "效率提升方法",
+    "f3text": "根据您的独特特质和优势提供个性化生产力建议。",
+    "f3btn": "参加测验",
+    "f4heading": "总有合适的模板",
+    "f4text": "数百个模板可供选择，帮助您快速开始任何任务。",
+    "f4btn": "使用模板开始",
+    "f5heading": "与其他工具无缝连接",
+    "f5text": "将 Todoist 与您的日历、语音助手和30多种其他工具关联。",
+    "f5btn": "安装集成"
+  },
+  "achievements": {
+    "heading": "值得您终身信赖的任务管理器",
+    "subheading": "我们已经开发 Todoist 15年169天了。",
+    "link": "我们将持续前行。",
+    "downloads": "应用下载量",
+    "tasks": "已完成任务",
+    "colleges": "合作院校",
+    "users": "专业用户"
+  },
+  "footer": {
+    "join": "加入数百万使用 Taskify 管理工作和生活的人。",
+    "features": "功能",
+    "f1": "使用方法",
+    "f2": "团队版",
+    "f3": "价格",
+    "f4": "模板",
+    "resources": "资源",
+    "r1": "下载应用",
+    "r2": "帮助中心",
+    "r3": "效率方法",
+    "r4": "推荐朋友",
+    "r5": "集成",
+    "r6": "渠道合作伙伴",
+    "r7": "开发者 API",
+    "r8": "状态",
+    "company": "公司",
+    "c1": "关于我们",
+    "c2": "我们在招聘！",
+    "c3": "博客",
+    "c4": "新闻",
+    "c5": "Twist",
+    "security": "安全",
+    "privacy": "隐私",
+    "terms": "条款"
+  },
+  "cookie": {
+    "text": "我们使用Cookie来改善您的体验。使用 Taskify 即表示您同意我们的",
+    "policy": "隐私政策",
+    "accept": "接受",
+    "decline": "拒绝"
+  },
+  "privacy": {
+  "title": "隐私政策",
+  "updated": "最后更新：2026年5月",
+  "intro_heading": "1. 简介",
+  "intro_text": "欢迎使用 Taskify。我们致力于保护您的个人信息和隐私权。",
+  "collect_heading": "2. 我们收集的信息",
+  "collect_text": "我们收集您直接提供给我们的信息，例如您创建账户时的姓名、电子邮件地址和密码。",
+  "use_heading": "3. 我们如何使用您的信息",
+  "use_text": "我们使用收集到的信息来提供、维护和改进我们的服务，并与您进行沟通。",
+  "cookies_heading": "4. Cookie",
+  "cookies_text": "我们使用Cookie和类似的跟踪技术来跟踪我们服务上的活动。Cookie是存储在您设备上的包含少量数据的文件。",
+  "storage_heading": "5. 本地存储",
+  "storage_text": "Taskify 使用浏览器本地存储来保存您的偏好设置和会话数据。这些数据存储在您的设备本地，不会传输到我们的服务器。",
+  "security_heading": "6. 数据安全",
+  "security_text": "我们采取适当的技术和组织措施，保护您的个人信息免遭未经授权的访问、更改、披露或销毁。",
+  "contact_heading": "7. 联系我们",
+  "contact_text": "如果您对本隐私政策有任何疑问，请通过以下方式联系我们：privacy@taskify.com",
+  "back": "← 返回首页"
+},
+"dashboard": {
+  "projects": "项目",
+  "thisDay": "今天",
+  "thisWeek": "本周",
+  "thisMonth": "本月",
+  "thisYear": "本年",
+  "todo": "待办",
+  "inProgress": "进行中",
+  "completed": "已完成",
+  "search": "搜索",
+  "profile": "个人资料",
+  "logout": "退出登录"
+},
+"sidebar": {
+  "overview": "概览",
+  "stats": "统计",
+  "projects": "项目",
+  "chat": "聊天",
+  "calendar": "日历",
+  "settings": "设置",
+  "logout": "退出登录"
+},
+"signup": {
+  "signup": "注册",
+  "login": "登录",
+  "username": "用户名",
+  "email": "电子邮箱",
+  "loginEmail": "请输入您的邮箱",
+  "password": "密码",
+  "loginPassword": "请输入密码",
+  "signupBtn": "注册",
+  "loginBtn": "登录",
+  "toggleLang": "English"
+},
+  "lang": {
+    "toggle": "English"
+  }
+}
