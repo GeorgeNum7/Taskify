@@ -6,6 +6,10 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo").default;
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const authMiddleware = require("./middleware/auth");
+const dashboardRoute = require("./routes/dashboard.route");
+const signupRoute = require("./routes/signup.route");
+const loginRoute = require("./routes/login.route");
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -14,6 +18,7 @@ const port = process.env.PORT || 3000;
 // 1. MongoDB Connection
 // ======================================================
 
+/* istanbul ignore next */
 if (process.env.NODE_ENV !== "test") {
   mongoose
     .connect("mongodb://127.0.0.1:27017/taskify")
@@ -45,6 +50,7 @@ app.use(cookieParser());
 // 4. CSRF Protection
 // ======================================================
 
+/* istanbul ignore next */
 if (process.env.NODE_ENV !== "test") {
   const csrfProtection = csrf({ cookie: true });
 
@@ -78,8 +84,8 @@ app.use(
       process.env.NODE_ENV === "test"
         ? undefined
         : MongoStore.create({
-            mongoUrl: "mongodb://127.0.0.1:27017/taskify",
-          }),
+          mongoUrl: "mongodb://127.0.0.1:27017/taskify",
+        }),
   })
 );
 
@@ -99,205 +105,34 @@ app.get("/", (req, res) => {
   res.status(200).render("index.ejs");
 });
 
-// Signup page
-app.get("/signup", (req, res) => {
-  res.status(200).render("signup.ejs", {
-    signupError: null,
-    loginError: null,
-    showLogin: false,
-    csrfToken: res.locals.csrfToken,
-  });
-});
+// Feature Routes
+app.use("/signup", signupRoute);
+app.use("/login", loginRoute);
+app.use("/dashboard", authMiddleware, dashboardRoute);
 
-// Login page
-app.get("/login", (req, res) => {
-  res.status(200).render("signup.ejs", {
-    signupError: null,
-    loginError: null,
-    showLogin: true,
-    csrfToken: res.locals.csrfToken,
+// ======================================================
+// 8. Logout
+// ======================================================
+
+app.get("/logout", (req, res) => {
+  req.session.destroy(() => {
+    res.redirect("/");
   });
 });
 
 // ======================================================
-// 8. Signup
-// ======================================================
-
-app.post("/signup", async (req, res) => {
-  try {
-    const username = req.body.SignUpUsername;
-    const email = req.body.SignUpEmail;
-    const password = req.body.SignUpPassword;
-
-    console.log(`尝试注册: ${username}, ${email}`);
-
-    // Missing field validation
-    if (!username || !email || !password) {
-      return res.status(400).render("signup.ejs", {
-        signupError: "All fields are required",
-        loginError: null,
-        showLogin: false,
-        csrfToken: res.locals.csrfToken,
-      });
-    }
-
-    // Duplicate username
-    const existingUsername = await User.findOne({ username });
-
-    if (existingUsername) {
-      return res.status(400).render("signup.ejs", {
-        signupError: "Username already exists",
-        loginError: null,
-        showLogin: false,
-        csrfToken: res.locals.csrfToken,
-      });
-    }
-
-    // Duplicate email
-    const existingEmail = await User.findOne({ email });
-
-    if (existingEmail) {
-      return res.status(400).render("signup.ejs", {
-        signupError: "Email already registered",
-        loginError: null,
-        showLogin: false,
-        csrfToken: res.locals.csrfToken,
-      });
-    }
-
-    // Hash password
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    // Create user
-    const user = new User({
-      username,
-      email,
-      password: hashedPassword,
-    });
-
-    await user.save();
-
-    console.log(`用户创建成功: ${user._id}`);
-
-    return res.redirect("/login?show=login");
-  } catch (err) {
-    console.error("注册错误:", err);
-
-    return res.status(500).render("signup.ejs", {
-      signupError: "Signup failed, please try again",
-      loginError: null,
-      showLogin: false,
-      csrfToken: res.locals.csrfToken,
-    });
-  }
-});
-
-// ======================================================
-// 9. Login
-// ======================================================
-
-app.post("/login", async (req, res) => {
-  try {
-    const email = req.body.LoginEmail;
-    const password = req.body.LoginPassword;
-
-    console.log(`登录尝试 - 邮箱: ${email}`);
-
-    // Missing fields
-    if (!email || !password) {
-      return res.status(400).render("signup.ejs", {
-        loginError: "All fields are required",
-        signupError: null,
-        showLogin: true,
-        csrfToken: res.locals.csrfToken,
-      });
-    }
-
-    const user = await User.findOne({ email });
-
-    console.log(
-      `查询结果: ${user ? `找到用户 ${user.username}` : "用户不存在"}`
-    );
-
-    // User not found
-    if (!user) {
-      return res.status(401).render("signup.ejs", {
-        loginError: "User not found",
-        signupError: null,
-        showLogin: true,
-        csrfToken: res.locals.csrfToken,
-      });
-    }
-
-    // Password compare
-    const isMatch = await bcrypt.compare(password, user.password);
-
-    console.log(`密码验证: ${isMatch ? "成功" : "失败"}`);
-
-    // Wrong password
-    if (!isMatch) {
-      return res.status(401).render("signup.ejs", {
-        loginError: "Wrong password",
-        signupError: null,
-        showLogin: true,
-        csrfToken: res.locals.csrfToken,
-      });
-    }
-
-    // Save session
-    req.session.userId = user._id;
-
-    console.log(`登录成功，session ID: ${req.session.userId}`);
-
-    return res.redirect("/dashboard");
-  } catch (err) {
-    console.error("登录错误:", err);
-
-
-    return res.status(500).render("signup.ejs", {
-      loginError: "Server error",
-      signupError: null,
-      showLogin: true,
-      csrfToken: res.locals.csrfToken,
-    });
-  }
-});
-
-// ======================================================
-// 10. Auth Middleware
-// ======================================================
-
-function authMiddleware(req, res, next) {
-  if (!req.session.userId) {
-    console.log(`未授权访问，session: ${req.session.userId}`);
-
-    return res.redirect("/login");
-  }
-
-  next();
-}
-
-// ======================================================
-// 11. Dashboard
+// 12. Privacy
 // ======================================================
 
 app.get("/privacy", (req, res) => {
-    res.status(200).render("privacy.ejs");
-});
-
-app.post("/signup", (req, res) => {
-    res.redirect("/");
-});
-
-app.post("/login", (req, res) => {
-    res.redirect("/");
+  res.status(200).render("privacy.ejs");
 });
 
 // ==========================================
 // 12. 404 Handler
 // ==========================================
 app.use((req, res) => {
-    res.redirect("/");
+  res.redirect("/");
 });
 
 // ======================================================
@@ -306,9 +141,9 @@ app.use((req, res) => {
 
 /* istanbul ignore next */
 if (process.env.NODE_ENV !== 'test') {
-    app.listen(port, () => {
-        console.log(`The application started successfully on port ${port}`);
-    });
+  app.listen(port, () => {
+    console.log(`The application started successfully on port ${port}`);
+  });
 }
 
 module.exports = app;

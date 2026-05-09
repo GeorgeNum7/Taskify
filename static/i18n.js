@@ -29,11 +29,17 @@ function applyTranslations() {
 
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    if (el.tagName === 'INPUT' && el.type === 'submit') {
+    if (el.tagName === 'INPUT' && (el.type === 'submit' || el.type === 'button')) {
       el.value = t(key);
     } else {
       el.textContent = t(key);
     }
+  });
+
+  // 处理输入框的 placeholder 翻译
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    el.setAttribute('placeholder', t(key));
   });
 
   // 更新Cookie Banner

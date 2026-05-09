@@ -1,54 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" href="../../../static/styles/partials/dashboard/navbar-dashboard.css" />
-  <link rel="stylesheet" href="../../../static/styles/main.css">
-</head>
-
-<body>
-  <header class="dashboard-header-navbar">
-    <div class="dashboard-navbar-container">
-      <nav class="dashboard-navbar-dashboard-navbar">
-        <form action="#" class="dashboard-navbar-search-bar">
-          <button type="submit" aria-label="Search">
-            <i class="fas fa-search"></i>
-          </button>
-          <input type="text" data-i18n-placeholder="dashboard.search" placeholder="Search" aria-label="Search tasks" />
-        </form>
-        <div class="dashboard-navbar-dashboard-links">
-          <ul class="dashboard-navbar-dashboard-navbar-links">
-            <li>
-              <a href="#" aria-label="Help"><i class="fa-regular fa-circle-question"></i></a>
-            </li>
-            <li>
-              <a href="#" class="dashboard-navbar-bell-icon" aria-label="Notifications"><i class="far fa-bell"></i></a>
-            </li>
-            <li>
-              <div class="dashboard-navbar-dropdown">
-                <button onclick="myFunction()" class="dashboard-navbar-dropbtn">
-                  Lord Voldemort <i class="fa-solid fa-chevron-down"></i>
-                </button>
-                <div id="dashboard-navbar-myDropdown" class="dashboard-navbar-dropdown-content">
-                  <a href="#" style="font-size: 16px;" data-i18n="dashboard.profile">Profile</a>
-                  <a href="#" style="font-size: 16px;" data-i18n="dashboard.logout">Log Out</a>
-                </div>
+<header class="dashboard-header-navbar">
+  <div class="dashboard-navbar-container">
+    <nav class="dashboard-navbar-dashboard-navbar">
+      <form action="#" class="dashboard-navbar-search-bar">
+        <button type="submit" aria-label="Search">
+          <i class="fas fa-search"></i>
+        </button>
+        <input type="text" data-i18n-placeholder="dashboard.search" placeholder="Search" aria-label="Search tasks" />
+      </form>
+      <div class="dashboard-navbar-dashboard-links">
+        <ul class="dashboard-navbar-dashboard-navbar-links">
+          <li>
+            <a href="#" aria-label="Help"><i class="fa-regular fa-circle-question"></i></a>
+          </li>
+          <li>
+            <a href="#" class="dashboard-navbar-bell-icon" aria-label="Notifications"><i class="far fa-bell"></i></a>
+          </li>
+          <li>
+            <button id="lang-toggle" class="dashboard-navbar-lang-btn" style="background-color:#9900f8; color:white; border:none; padding:5px 15px; border-radius:4px; cursor:pointer; font-size:12px; margin-right:10px;">中文</button>
+          </li>
+          <li>
+            <div class="dashboard-navbar-dropdown">
+              <button onclick="myFunction()" class="dashboard-navbar-dropbtn">
+                <%= typeof user !== 'undefined' ? user.username : 'User' %> <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div id="dashboard-navbar-myDropdown" class="dashboard-navbar-dropdown-content">
+                <a href="#" style="font-size: 16px;" data-i18n="dashboard.profile">Profile</a>
+                <a href="/logout" style="font-size: 16px;" data-i18n="dashboard.logout">Log Out</a>
               </div>
-            </li>
-            <li>
-              <a href="#" aria-label="User profile"><i class="fa-regular fa-user dashboard-navbar-link-img dashboard-navbar-profile-icon"></i></a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-  </header>
-  <script src="../../../static/i18n.js"></script>
-</body>
+            </div>
+          </li>
+          <li>
+            <a href="#" aria-label="User profile"><i class="fa-regular fa-user dashboard-navbar-link-img dashboard-navbar-profile-icon"></i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
 <script>
 function myFunction() {
   document.getElementById("dashboard-navbar-myDropdown").classList.toggle("dashboard-navbar-show");
@@ -66,4 +54,3 @@ window.onclick = function(event) {
   }
 }
 </script>
-</html>

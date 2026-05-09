@@ -10,23 +10,31 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-  <link rel="stylesheet" href="../../static/styles/main.css" />
-  <link rel="stylesheet" href="../../static/styles/dashboard/dashboard.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/static/styles/main.css" />
+  <link rel="stylesheet" href="/static/styles/dashboard/dashboard.css">
+  <link rel="stylesheet" href="/static/styles/partials/dashboard/dashboard-sidebar.css" />
+  <link rel="stylesheet" href="/static/styles/partials/dashboard/navbar-dashboard.css" />
+  <link rel="stylesheet" href="/static/styles/partials/dashboard/dashboard-cards.css" />
+</head>
 
 <body>
   <!-- The main dashboard is here  -->
 
   <div class="dashboard-content-container">
     <div class="dashboard-sidebar-container">
-      <%-include("../partials/dashboard/dashboard-sidebar.ejs") %>
+      <%- include("../partials/dashboard/dashboard-sidebar.ejs") %>
     </div>
     <div class="dashboard-nav-cards-section">
-      <%-include("../partials/dashboard/navbar-dashboard.ejs") %>
-      <%-include("../partials/dashboard/dashboard-cards.ejs") %>
+      <%- include("../partials/dashboard/navbar-dashboard.ejs") %>
+      <%- include("../partials/dashboard/dashboard-cards.ejs") %>
     </div>
   </div>
 
+  <script src="/static/i18n.js"></script>
 </body>
 
 </html>

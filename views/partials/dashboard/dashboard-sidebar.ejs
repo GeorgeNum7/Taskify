@@ -1,83 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <title>Document</title>
-  <link rel="stylesheet" href="../../../static/styles/partials/dashboard/dashboard-sidebar.css" />
-  <link rel="stylesheet" href="../../../static/styles/main.css">
-</head>
-
-<body>
-  <section class="sidebar">
-    <div class="sidebar-container">
-      <div class="sidebar-header">
-        <div class="sidebar-logo">
-          <img src="../../../static/assets/nav_logo.png" alt="Taskify logo" />
-        </div>
-        <div class="sidebar-title">Taskify</div>
-        <a href="#" aria-label="Toggle menu">
-          <i class="menuIcon material-icons">menu</i>
-        </a>
+<section class="sidebar">
+  <div class="sidebar-container">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">
+        <img src="/static/assets/nav_logo.png" alt="Taskify logo" />
       </div>
-      <div class="sidebar-items">
-        <ul class="menu">
-          <li class="sidebar-list">
-            <a href="#">
-              <span class="sidebar-icon"><i class="fa-solid fa-house"></i></span>
-              <span class="sidebar-name" data-i18n="sidebar.overview">Overview</span>
-            </a>
-          </li>
-          <li class="sidebar-list">
-            <a href="#">
-              <span class="sidebar-icon"><i class="fa-solid fa-chart-simple"></i></span>
-              <span class="sidebar-name" data-i18n="sidebar.stats">Stats</span>
-            </a>
-          </li>
-          <li class="sidebar-list">
-            <a href="#">
-              <span class="sidebar-icon"><i class="fa-solid fa-folder-open"></i></span>
-              <span class="sidebar-name" data-i18n="sidebar.projects">Projects</span>
-            </a>
-          </li>
-          <li class="sidebar-list">
-            <a href="#">
-              <span class="sidebar-icon"><i class="fa-solid fa-comment"></i></span>
-              <span class="sidebar-name" data-i18n="sidebar.chat">Chat</span>
-            </a>
-          </li>
-          <li class="sidebar-list">
-            <a href="#">
-              <span class="sidebar-icon"><i class="fa-solid fa-calendar-days"></i></span>
-              <span class="sidebar-name" data-i18n="sidebar.calendar">Calendar</span>
-            </a>
-          </li>
-          <li class="bottom-section">
-            <ul>
-              <li class="sidebar-list">
-                <a href="#">
-                  <span class="sidebar-icon"><i class="fa-solid fa-gear"></i></span>
-                  <span class="sidebar-name" data-i18n="sidebar.settings">Settings</span>
-                </a>
-              </li>
-              <li class="sidebar-list">
-                <a href="#">
-                  <span class="sidebar-icon"><i class="fa-solid fa-right-from-bracket"></i></span>
-                  <span class="sidebar-name" data-i18n="sidebar.logout">Log out</span>
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+      <div class="sidebar-title">Taskify</div>
+      <a href="#" aria-label="Toggle menu">
+        <i class="menuIcon material-icons">menu</i>
+      </a>
     </div>
-  </section>
-  <script src="../../../static/i18n.js"></script>
-</body>
-</html>
+    <div class="sidebar-items">
+      <ul class="menu">
+        <li class="sidebar-list">
+          <a href="#">
+            <span class="sidebar-icon"><i class="fa-solid fa-house"></i></span>
+            <span class="sidebar-name" data-i18n="sidebar.overview">Overview</span>
+          </a>
+        </li>
+        <li class="sidebar-list">
+          <a href="#">
+            <span class="sidebar-icon"><i class="fa-solid fa-chart-simple"></i></span>
+            <span class="sidebar-name" data-i18n="sidebar.stats">Stats</span>
+          </a>
+        </li>
+        <li class="sidebar-list">
+          <a href="#">
+            <span class="sidebar-icon"><i class="fa-solid fa-folder-open"></i></span>
+            <span class="sidebar-name" data-i18n="sidebar.projects">Projects</span>
+          </a>
+        </li>
+        <li class="sidebar-list">
+          <a href="#">
+            <span class="sidebar-icon"><i class="fa-solid fa-comment"></i></span>
+            <span class="sidebar-name" data-i18n="sidebar.chat">Chat</span>
+          </a>
+        </li>
+        <li class="sidebar-list">
+          <a href="#">
+            <span class="sidebar-icon"><i class="fa-solid fa-calendar-days"></i></span>
+            <span class="sidebar-name" data-i18n="sidebar.calendar">Calendar</span>
+          </a>
+        </li>
+        <li class="bottom-section">
+          <ul>
+            <li class="sidebar-list">
+              <a href="#">
+                <span class="sidebar-icon"><i class="fa-solid fa-gear"></i></span>
+                <span class="sidebar-name" data-i18n="sidebar.settings">Settings</span>
+              </a>
+            </li>
+            <li class="sidebar-list">
+              <a href="/logout">
+                <span class="sidebar-icon"><i class="fa-solid fa-right-from-bracket"></i></span>
+                <span class="sidebar-name" data-i18n="sidebar.logout">Log out</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

@@ -43,6 +43,7 @@
           <% } %>
 
           <form method="post" action="/signup">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
             <label for="chk" aria-hidden="true" data-i18n="signup.signup">Sign up</label>
             <div class="signup-username">
               <input type="text" name="SignUpUsername" 
@@ -79,6 +80,7 @@
           <% } %>
 
           <form method="post" action="/login">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
             <label for="chk" aria-hidden="true" data-i18n="signup.login">Login</label>
             <div class="signup-email">
               <input type="email" name="LoginEmail" 
