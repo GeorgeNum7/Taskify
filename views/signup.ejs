@@ -106,5 +106,50 @@
   </section>
 
   <script src="../static/i18n.js"></script>
+  
+<script>
+function getValidationMessages() {
+  var lang = localStorage.getItem('lang') || 'en';
+  return {
+    en: {
+      required: 'Please fill in this field.',
+      email: 'Please enter a valid email address.'
+    },
+    zh: {
+      required: '请填写此字段。',
+      email: '请输入有效的电子邮件地址。'
+    }
+  }[lang];
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  var inputs = document.querySelectorAll('input[required]');
+  
+  inputs.forEach(function(input) {
+    // 输入时清除自定义提示
+    input.addEventListener('input', function() {
+      input.setCustomValidity('');
+    });
+
+    // 提交时检查
+    input.closest('form').addEventListener('submit', function() {
+      input.setCustomValidity('');
+    });
+
+    // 验证失败时显示自定义提示
+    input.addEventListener('invalid', function(e) {
+      var msg = getValidationMessages();
+      if (input.validity.valueMissing) {
+        input.setCustomValidity(msg.required);
+      } else if (input.validity.typeMismatch && input.type === 'email') {
+        input.setCustomValidity(msg.email);
+      } else {
+        input.setCustomValidity('');
+      }
+    });
+  });
+});
+</script>
+
 </body>
 </html>
