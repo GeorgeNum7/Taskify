@@ -6,6 +6,12 @@
  * - Authenticated users can access the dashboard
  * - After logout, users are redirected again
  */
+// 强制在此测试套件中物理架空 csurf 中间件
+jest.mock('csurf', () => () => (req, res, next) => {
+  req.csrfToken = () => 'mocked-token';
+  next();
+});
+
 const request = require('supertest');
 const mongoose = require('mongoose');
 const { MongoMemoryServer } = require('mongodb-memory-server');

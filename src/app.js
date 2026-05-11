@@ -1,9 +1,14 @@
+require("dotenv").config();
+
 const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const csrf = require("csurf");
 const session = require("express-session");
-const MongoStore = require("connect-mongo").default;
+
+/* istanbul ignore next */
+const MongoStore = require("connect-mongo").default || require("connect-mongo");
+
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const authMiddleware = require("./middleware/auth");
@@ -12,7 +17,12 @@ const signupRoute = require("./routes/signup.route");
 const loginRoute = require("./routes/login.route");
 
 const app = express();
+
+/* istanbul ignore next */
 const port = process.env.PORT || 3000;
+
+/* istanbul ignore next */
+const DB_URI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/taskify";
 
 // ======================================================
 // 1. MongoDB Connection
@@ -21,8 +31,8 @@ const port = process.env.PORT || 3000;
 /* istanbul ignore next */
 if (process.env.NODE_ENV !== "test") {
   mongoose
-    .connect("mongodb://127.0.0.1:27017/taskify")
-    .then(() => console.log("✅ MongoDB connected"))
+    .connect(DB_URI) // 已修复：使用动态 URI
+    .then(() => console.log("✅ MongoDB connected successfully"))
     .catch((err) => console.error("❌ MongoDB error:", err));
 }
 
@@ -50,24 +60,13 @@ app.use(cookieParser());
 // 4. CSRF Protection
 // ======================================================
 
-/* istanbul ignore next */
-if (process.env.NODE_ENV !== "test") {
-  const csrfProtection = csrf({ cookie: true });
+const csrfProtection = csrf({ cookie: true });
+app.use(csrfProtection);
 
-  app.use(csrfProtection);
-
-  app.use((req, res, next) => {
-    res.locals.csrfToken = req.csrfToken();
-    next();
-  });
-} else {
-  // Test environment:
-  // disable csrf validation
-  app.use((req, res, next) => {
-    res.locals.csrfToken = "";
-    next();
-  });
-}
+app.use((req, res, next) => {
+  res.locals.csrfToken = req.csrfToken();
+  next();
+});
 
 // ======================================================
 // 5. Session
@@ -84,8 +83,8 @@ app.use(
       process.env.NODE_ENV === "test"
         ? undefined
         : /* istanbul ignore next */ MongoStore.create({
-          mongoUrl: "mongodb://127.0.0.1:27017/taskify",
-        }),
+            mongoUrl: DB_URI, // 已修复：使用动态 URI 同步 Session
+          }),
   })
 );
 
@@ -147,4 +146,3 @@ if (process.env.NODE_ENV !== 'test') {
 }
 
 module.exports = app;
-
