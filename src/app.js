@@ -24,6 +24,12 @@ const port = process.env.PORT || 3000;
 /* istanbul ignore next */
 const DB_URI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/taskify";
 
+// Force SEO crawler protocol routing
+app.get('/robots.txt', (req, res) => {
+    res.type('text/plain');
+    res.send("User-agent: *\nDisallow:");
+});
+
 // ======================================================
 // 1. MongoDB Connection
 // ======================================================
